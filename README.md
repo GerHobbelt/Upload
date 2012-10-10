@@ -2,10 +2,15 @@
 
 ## Usage
 
+**USE THIS FORK AT YOUR OWN RISK.  THIS IS A QUICK HACK TO ENABLE MULTIPLE-FILE UPLOADS FOR A DISPOSABLE
+PERSONAL PROJECT.  IT IS NOT UNIT TESTED, IT IS HACKY AND I MAKE NO CLAIMS THAT IT EVEN WORKS CORRECTLY.**
+
+**ONCE MULTIPLE FILE UPLOADS ARE ADDED TO THE UPSTREAM OR A SIMILAR LIBRARY THIS FORK WILL BE DISCONTINUED.**
+
 This component simplifies file validation and uploading. Assume a file is uploaded with this HTML form:
 
     <form action="" method="POST" enctype="multipart/form-data">
-        <input type="file" name="foo" value=""/>
+        <input type="file" name="foo[]" value=""/ multiple>
         <input type="submit" value="Upload File"/>
     </form>
 
@@ -13,7 +18,7 @@ When the HTML form is submitted, the server-side PHP code can validate and uploa
 
     <?php
     $storage = new \Upload\Storage\FileSystem('/path/to/directory');
-    $file = new \Upload\File('foo', $storage);
+    $file = new \Upload\FileMultiple('foo', $storage);
 
     // Validate file upload
     $file->addValidations(array(
@@ -42,8 +47,14 @@ Install composer in your project:
 Create a composer.json file in your project root:
 
     {
+        "repositories": [
+            {
+                "type": "vcs",
+                "url": "http://github.com/adambrett/Upload"
+            }
+        ],
         "require": {
-            "codeguy/upload": "*"
+            "adambrett/Upload": "1.3.0-p1"
         }
     }
 
@@ -54,6 +65,7 @@ Install via composer:
 ## Author
 
 [Josh Lockhart](https://github.com/codeguy)
+[Adam Brett](https://github.com/adambrett)
 
 ## License
 
