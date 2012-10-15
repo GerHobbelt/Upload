@@ -1,9 +1,9 @@
 {
-    "name": "adambrett/upload",
+    "name": "adambrett/php-upload",
     "type": "library",
     "description": "Handle (multiple) file uploads with extensible validation and storage strategies",
     "keywords": ["upload", "validation", "file"],
-    "homepage": "http://github.com/adambrett/Upload",
+    "homepage": "http://github.com/adambrett/php-upload",
     "license": "MIT",
     "authors": [
         {
